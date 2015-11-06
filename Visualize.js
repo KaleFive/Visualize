@@ -1,13 +1,25 @@
 
+  var Visualize = {};
+
+  if ( typeof define === 'function' && define.amd ) {
+
+  		define( 'three', THREE );
+
+  } else if ( 'undefined' !== typeof exports && 'undefined' !== typeof module ) {
+
+  		module.exports = Visualize;
+
+  }
+
 
   // this is the variable to cancel the animation rendering when set to false
-  var onLandingPage = true;
-  var squareFormationCalled = false;
-  var scene;
+  Visualize.onLandingPage = true;
+  Visualize.squareFormationCalled = false;
+  Visualize.scene;
 
-  function Visualize() {
-    if(!scene) throw Error("make a scene first");
-  }
+  // function Visualize() {
+  //   if(!scene) throw Error("make a scene first");
+  // }
 
   Visualize.init = function() {
 
@@ -48,7 +60,6 @@
       camera.position.y = 800;
 
       renderer.setSize(WIDTH, HEIGHT);
-      console.log("this is the RENDERER: ", renderer);
       renderer.setClearColor( 0x2c3338, 1);
 
       var cubes = [];
@@ -157,7 +168,6 @@
             allCubesWave[i] = [];
             for(var k = 0; k < rowLength; k++) {
               var newCube = cubes[i].clone();
-              console.log(newCube.position.x)
               scene.add(newCube);
               newCube.position.z = (k * 50);
               allCubesWave[i].push(newCube);
@@ -208,7 +218,7 @@
       camera.lookAt(groupCubes.position);
 
       function RenderScene() {
-        if(onLandingPage) {
+        if(this.Visualize.onLandingPage) {
             var OFFSET = 100;
             var freqByteData = new Uint8Array(analyser.frequencyBinCount);
             analyser.getByteFrequencyData(freqByteData);
@@ -244,11 +254,15 @@
     onLandingPage = false;
   };
 
-  Visualize.init();
-  setTimeout(Visualize.quarterFormation, 5000);
-  setTimeout(Visualize.circleFormation, 10000);
-  setTimeout(Visualize.doubleCircleFormation, 15000);
-
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      console.log("hello node")
+      exports = module.exports = Visualize;
+    }
+    exports.Visualize = Visualize;
+  } else {
+    this['Visualize'] = Visualize;
+  }
 
 
 // attempt to create a material for the ocean effect
