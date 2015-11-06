@@ -21,11 +21,11 @@
   //   if(!scene) throw Error("make a scene first");
   // }
 
-  Visualize.init = function() {
+  Visualize.init = function(audioSource) {
 
 
       window.audio = new Audio();
-      audio.src = '/audio/V.mp3';
+      audio.src = audioSource;
       audio.autoplay = true;
       audio.loop = true;
 
