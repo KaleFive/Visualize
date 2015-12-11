@@ -5,7 +5,7 @@ JS library that utilizes ThreeJS to create audio visualizations that react to th
 
 ~ this version is currently working with pre-set specifications
 
-~ this week (by November 20) the editable areas will be fully functional
+~ the editable areas will soon be fully functional
 
 1.)  In order to get started with Visualize fork this repo and add it to your project
 
