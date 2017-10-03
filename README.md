@@ -1,6 +1,8 @@
 # Visualize
 JS library that utilizes ThreeJS to create audio visualizations that react to the music
 
+<img width="1273" alt="screen shot 2017-10-03 at 7 47 53 am" src="https://user-images.githubusercontent.com/11951665/31123746-36682dca-a80f-11e7-9f50-05556c3a9aac.png">
+
 *Please excuse my appearance during construction*
 
 ~ this version is currently working with pre-set specifications
